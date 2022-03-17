@@ -34,7 +34,7 @@ class BarangController extends Controller
     
     public function store(Request $request) 
     {
-        $data = $request->only('name', 'category_id', 'quantity');
+        $data = $request->all();
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'category_id' => 'required',
@@ -43,7 +43,7 @@ class BarangController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->messages()], 200);
         }
-        $Barang = $this->user->Barangs()->create([
+        $Barang = $this->user->barangs()->create([
             'name' => $request->name,
             'category_id' => $request->category_id,
             'quantity' => $request->quantity

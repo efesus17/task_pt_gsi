@@ -34,7 +34,7 @@ class BarangMasukController extends Controller
 
     public function store(Request $request) 
     {
-        $data = $request->only('tanggal_masuk', 'nama_supplier', 'alamat', 'barang_id', 'qty', 'harga');
+        $data = $request->all();
         $validator = Validator::make($data, [
             'tanggal_masuk' => 'required|string',
             'nama_supplier' => 'required',
@@ -83,7 +83,7 @@ class BarangMasukController extends Controller
 
     public function update(Request $request, BarangMasuk $BarangMasuk) 
     {
-        $data = $request->only('tanggal_masuk', 'nama_supplier', 'alamat', 'barang_id', 'qty', 'harga');
+        $data = $request->all();
         $validator = Validator::make($data, [
             'tanggal_masuk' => 'required|string',
             'nama_supplier' => 'required',

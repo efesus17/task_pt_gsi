@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name', 'category_id', 'quantity'
+    protected $guarded = [
+        'id', 'cretaed_at', 'updated_at'
     ];
 
     public function categorybarang()
